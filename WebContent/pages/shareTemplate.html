@@ -1,0 +1,44 @@
+<div class="contentCreate" data-ng-controller="noteHandlerCtrl as noteHandlerVM">
+
+	<div id="noteSpace">
+		<div id="introduction">
+			<h1>Share note</h1>
+		</div>
+
+		<div id="noteForm">
+
+			<div id="textNote">
+				<fieldset class="notesFieldset">
+					<legend>Note</legend>
+
+					<input type="text" name="title" id="noteTitle" placeholder="Title"
+						data-ng-model="noteHandlerVM.note.title"
+						data-ng-readonly="true">
+
+					<textarea id="contentNote" name="content"
+						placeholder="Start typing your note..."
+						data-ng-model="noteHandlerVM.note.content"
+						data-ng-readonly="true">
+					</textarea>
+
+				</fieldset>
+			</div>
+			<form
+				data-ng-submit="usersNotesHandlerVM.functions.shareNote(noteHandlerVM.note.idn)">
+				<p>Select friends to share this note:</p>
+				<div id="friendShare"
+					data-ng-controller="friendsHandlerCtrl as friendsVM">
+					<div data-ng-repeat="friend in friendsVM.friends">
+						<input type="checkbox" name="friendShare"
+   							data-ng-click="usersNotesHandlerVM.functions.addFriendToArray(friend.username)"
+							value="{{friend.username}}"> {{friend.username }}<br>
+					</div>
+				</div>
+
+				<div id="submitNote">
+					<input id="submitButton" type="submit" value="Share Note" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

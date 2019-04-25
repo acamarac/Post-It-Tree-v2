@@ -1,0 +1,18 @@
+<div class="topNavigation" >
+</div>
+
+<div class="content">
+	<h1 id="headerImage">Select your profile image</h1>
+	<div id="images" data-ng-controller="userHandlerCtrl as userHandlerVM">
+		<form data-ng-submit="userHandlerVM.functions.updateUser()">
+		
+			<div data-ng-repeat="profileImages in profileImageVM.images" id="profileImageDiv">
+				<input type="radio" name="selectImage" value="{{profileImages.urlimage}}"
+						data-ng-model="userHandlerVM.user.urlImage">
+						<img class="imgShow" alt="Dog image" src="{{profileImages.urlimage}}">
+			</div>
+
+			<br> <input type="submit" value="Confirm" id="bSubmitImg">
+		</form>
+	</div>
+</div>

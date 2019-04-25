@@ -1,0 +1,69 @@
+<div class="topNavigation" >
+</div>
+
+<div class="content">
+
+		<h1 id="mainTitle">Friends</h1>
+
+		<ul class="addFriend">
+			<li><a href="#!addFriend">Add friend</a><li>
+		</ul>
+		<div id="listFriends" data-ng-repeat="friendData in friendsHandlerVM.friends">
+			<fieldset id="friendFieldset">
+				<legend>Friend</legend>
+
+				<div data-ng-if="!friendData.friend.urlImage"  id="friendImage">
+					<img alt="FriendImage" src="../img/friendIcon.png" class="profileImage">
+				</div>
+				<div data-ng-if="friendData.friend.urlImage"  id="friendImage">
+					<a href="#!/profile">
+						<img alt="Link to account settings" src="{{friendData.friend.urlImage}}" class="profileImage">
+					</a>
+				</div>
+
+
+				<div id="profile">
+					<p>Name: {{friendData.friend.username}}</p>
+					<p>Email: {{friendData.friend.email}} </p>
+				</div>
+
+				<div id="sharedNotes">
+					<p>Notes of that user shared with me:</p>
+					<div data-ng-repeat="notesF in friendData.notesSharedByFriend">
+						<div id="wrapTitle">
+							<div class="color{{notesF.color}}">
+								<p class="NoteTitle" >
+									<a data-ng-href="#!/editNote/{{ notesF.idn }}" class="noteLink">
+									{{notesF.title}}
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					
+					<p>Notes that I share with that user:</p>
+					<div data-ng-repeat="notesM in friendData.notesSharedByMe">
+						<div id="wrapTitle">
+							<div class="color{{notesM.color}}">
+								<p class="NoteTitle" >
+									<a data-ng-href="#!/editNote/{{ notesM.idn }}" class="noteLink">
+									{{notesM.title}}
+									</a>
+								</p>
+						</div>
+					</div>
+
+				</div>
+				
+				<div id="deleteFriend">
+					<ul id="deleteUl">
+						<li>
+							<a href="" data-ng-click="friendsHandlerVM.functions.deleteFriend(friendData)">
+								Delete friend
+							</a>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+		</div>
+	</div>

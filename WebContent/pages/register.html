@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html id="list" data-ng-app="notesApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-it Tree</title>
+    <link rel="shortcut icon" href="../img/logoIcon.ico"/>
+    <link rel="stylesheet" href="../css/loginCSS.css">
+    
+    <script src="../js/angular/angular.js"></script>
+	<script src="../js/angular/angular-route.js"></script>
+	
+	<script src="../js/app.js"></script>
+	<script src="../js/factories/usersFactory.js"></script>
+	<script src="../js/controllers/userHandlerCtrl.js"></script>
+    <script src="../js/controllers/headerCtrl.js"></script>
+    <script src="../js/controllers/listCtrl.js"></script>
+    <script src="../js/factories/notesFactory.js"></script>
+    <script src="../js/factories/usersNotesFactory.js"></script>
+    <script src="../js/controllers/usersNotesHandlerCtrl.js"></script>
+    <script src="../js/controllers/noteHandlerCtrl.js"></script>
+    <script src="../js/factories/friendsFactory.js"></script>
+    <script src="../js/controllers/friendsHandlerCtrl.js"></script>
+    <script src="../js/factories/versionsFactory.js"></script>
+    <script src="../js/controllers/profileImageHandlerCtrl.js"></script>
+    <script src="../js/factories/profileImageFactory.js"></script>
+	<script src="../js/factories/usersFactory.js"></script>
+	<script src="../js/controllers/registerHandlerCtrl.js"></script>
+</head>
+
+<body>
+	<div id="image">
+    <img src="../img/mainIcon.png" alt="logoImage" id="logo">
+</div>
+
+<header id="cabecera">
+    <h1>Post-it tree</h1>
+</header>
+
+<div id="signUpDiv" class="tabcontent" data-ng-controller="registerHandlerCtrl as registerVM">
+    <h1>Create your account</h1>
+    <p data-ng-if="registerVM.messages.length>0"> {{registerVM.messages}} </p>
+    <div class="loginResgisterForm">
+        <form data-ng-submit="registerVM.functions.registerUser()">
+        	<input data-ng-model="registerVM.user.username" type="text" class="formElement" placeholder="Username" name="userNameRegister" required>
+            <input data-ng-model="registerVM.user.email" type="email" class="formElement" placeholder="Email" name="correoRegistro" required>
+            <br>
+            <input data-ng-model="registerVM.user.password" type="password" class="formElement" placeholder="Password" name="contraseniaRegistro"  required>
+            <input type="submit" class="submitB" name="registro" value="SIGN UP">
+        </form>
+    </div>
+    <p>Have an account?
+    	<a href="../LoginServlet">Log in here</a>
+    </p>
+</div>
+
+</body>
+</html>

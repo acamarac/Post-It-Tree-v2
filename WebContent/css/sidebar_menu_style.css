@@ -1,0 +1,147 @@
+
+.navigation {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20%;
+    height: 100%;
+    background-color: #525c65;
+    text-align: center;
+    color: white;
+    margin: 0;
+    box-shadow: 5px 0 5px 0px #333;
+    z-index: 1;
+}
+
+.content {
+    left: 20%;
+    background-color: #f1f1f1;
+    width: 80%;
+    position: absolute;
+    text-align: center;
+}
+
+.contentAdv {
+	left: 20%;
+    background-color: #f1f1f1;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    overflow: auto;
+}
+
+
+#menuList {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.contentList {
+    font-size: 120%;
+    width: 100%;
+}
+
+
+li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+li a:hover {
+    height: 100%;
+    color: darkslategrey;
+    background: #FFF275;
+}
+
+.contentList:link {
+    text-decoration: none;
+}
+
+#logo {
+    width: 40%;
+    margin-top: 20px;
+}
+
+#usernameP {
+	position: absolute;
+    bottom: 40px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+#profileImaLink {
+	position: absolute;
+    bottom: 70px;
+    width: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#optionButtons {
+	position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+#buttonLogOut {
+	border-radius: 10px 10px 10px 10px;
+    background-color: #FFF275;
+    color: darkslategrey;
+    font-weight: bold;
+    border-color: #FFF275;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+#showTags {
+    display: inline-block;
+    width: 100%;
+}
+
+#tagsDiv {
+    display: none;
+    background-color: #dbe2e8;
+    color: black;
+}
+
+
+#showTags:hover #tagsDiv {
+    display: block;
+}
+
+#tagsDiv {
+    max-height: 100px;
+    overflow: auto;
+}
+
+#tabList {
+    padding-left: 0;
+}
+
+.tagElement {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#formSearch {
+	margin-top: 40px;
+}
+
+.checkboxSearch {
+	text-align: left;
+}
+
+.fieldSearch {
+	border-radius: 10px 10px 10px 10px;
+	margin: 10px 0 10px 0;
+}
+
+

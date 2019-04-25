@@ -1,0 +1,140 @@
+<div class="topNavigation" >
+
+	<div id="searchFunction" data-ng-controller="noteHandlerCtrl as noteVM">
+		<img data-ng-show="listVM.functions.where('/trash')" data-ng-click="noteVM.functions.deleteAllNotesTrash(listVM.notes)"
+		id="trashBin" alt="Delete all notes in trash" src="../img/waste-bin.png">
+		
+		<form data-ng-submit="listVM.functions.basicSearch()" data-ng-show="!listVM.functions.where('/advancedSearch')">
+			<input type="text" id="searchInput" name="search"
+				placeholder="Search..." data-ng-model="listVM.text"> 
+			<select id="selectSearch" name="searchOption" data-ng-model="listVM.option" required>
+				<option value="">Select</option>
+				<option value="0">All</option>
+				<option value="1">Title</option>
+				<option value="2">Content</option>
+			</select> 
+			<input type="submit" value="Search" id="searchButton">
+		</form>
+		
+	</div>
+</div>
+
+
+<div class="content">
+
+	<div id="introduction">
+		<ul id="createNote" data-ng-show="listVM.functions.where('/')">
+        	<li class="contentList"><a href="#!insertNote">Create new note</a></li>
+    	</ul>
+	
+		<h1 id="h1ArTr" data-ng-show="listVM.functions.where('/archive')"> Archived notes </h1>
+		
+		<h1 id="h1ArTr" data-ng-show="listVM.functions.where('/trash')"> Trash</h1>
+		
+		<h1 id="h1ArTr" data-ng-show="!listVM.functions.where('/')  && !listVM.functions.where('/trash')
+			 && !listVM.functions.where('/archive') && !listVM.functions.where('/advancedSearch')"> Versions</h1>
+	</div>
+
+	<div id="advSearch" data-ng-show="listVM.functions.where('/advancedSearch')">
+	<form data-ng-submit="listVM.functions.readAdvancedSearch()">
+		<div id="searchOptions">
+				<fieldset class="fieldSearch">
+					<legend>Text</legend>
+					<input type="text" id="searchText" name="search"
+						placeholder="Search..." value="" data-ng-model="listVM.text">
+					<select id="selectAdv" name="searchOption" data-ng-model="listVM.option">
+						<option value="">Select</option>
+						<option value="1">Title</option>
+						<option value="2">Content</option>
+						<option value="0" selected="selected">All</option>
+					</select>
+				</fieldset>
+			</div>
+		<div class="checkboxSearch">
+			<fieldset class="fieldSearch">
+				<legend>Colors</legend>
+				<input type="checkbox" name="color" value="0" data-ng-click="listVM.functions.addColorToArray(0)">White<br>
+				<input type="checkbox" name="color" value="1" data-ng-click="listVM.functions.addColorToArray(1)">Pink<br>
+				<input type="checkbox" name="color" value="2" data-ng-click="listVM.functions.addColorToArray(2)">Grey<br>
+				<input type="checkbox" name="color" value="3" data-ng-click="listVM.functions.addColorToArray(3)">Blue<br>
+				<input type="checkbox" name="color" value="4" data-ng-click="listVM.functions.addColorToArray(4)">Yellow<br>
+			</fieldset>
+			</div>
+			<div class="checkboxSearch"
+				data-ng-controller="friendsHandlerCtrl as friendsVM">
+				<fieldset class="fieldSearch">
+					<legend>Shared</legend>
+					<div data-ng-repeat="friend in friendsVM.friends">
+						<input type="checkbox" name="friendSearch" value="{{friend.username}}" 
+							data-ng-click="listVM.functions.addFriendToArray(friend.username)">
+							 {{friend.username }}<br>
+					</div>
+					<select class="selectAdv" name="sharing" data-ng-model="listVM.sharedBy">
+						<option value="">Select</option>
+						<option value="0" selected="selected">Shared by</option>
+						<option value="1">Shared with</option>
+					</select>
+				</fieldset>
+			</div>
+			<input type="submit" value="Search">
+	</form>
+	</div>
+
+	<div class="notesGeneralDiv">
+
+		<div class="note" data-ng-repeat="note in listVM.notes | orderBy : ['-pinned','-idn']">
+			<div class="color{{note.color}}">
+				<div class="topNoteDiv">
+					<div class="titleDiv">
+						<p>{{note.title}}</p>
+					</div>
+					<div class="optionDiv">
+						<img src="../img/optionsIcon.png" alt="Dropdown Menu"
+							class="optionIcon">
+						<div class="dropableContent" data-ng-controller="usersNotesHandlerCtrl as usersNotesVM">
+							<a data-ng-if="note.trash == 0" data-ng-href="#!/editNote/{{ note.idn }}"> Edit note </a> 
+							<a href="" data-ng-if="note.pinned == 1 && note.trash == 0" data-ng-click="usersNotesVM.functions.unpin_pinNote(listVM.notes, note)" > 
+							 Unpin note </a> 
+							<a href="" data-ng-if="note.pinned == 0 && note.trash == 0" data-ng-click="usersNotesVM.functions.unpin_pinNote(listVM.notes, note)" >
+							 Pin note </a> 
+							<a href="" data-ng-if="note.archived == 1 && note.trash == 0" data-ng-click="usersNotesVM.functions.unarchive_archiveNote(listVM.notes, note)"> 
+							 Unarchive note </a> 
+							<a href="" data-ng-if="note.archived == 0 && note.trash == 0" data-ng-click="usersNotesVM.functions.unarchive_archiveNote(listVM.notes, note)">
+							 Archive note </a>
+							<a data-ng-if="note.trash == 0" data-ng-href="#!/deleteNote/{{ note.idn }}"> Delete note </a> 
+							<a href="" data-ng-if="note.owner == 1 && note.trash == 0" data-ng-href="#!/shareNote/{{ note.idn }}">
+							 Share note </a>
+							<a href="" data-ng-if="note.trash == 1" data-ng-click="usersNotesVM.functions.recoverNote(listVM.notes, note)">
+							 Restore </a>
+							<a href="" data-ng-if="note.trash == 1" data-ng-click="usersNotesVM.functions.deleteNoteTrash(listVM.notes, note)">
+							 Delete forever </a>
+							<a href="" data-ng-href="#!/versions/{{ note.idn }}" data-ng-show="listVM.functions.where('/') 
+								|| listVM.functions.where('/trash') || listVM.functions.where('/archive')"> Versions </a> 
+							<a href="" data-ng-href="#!/versions/{{ note.idn }}/{{ note.timestamp }}" data-ng-show="!listVM.functions.where('/') 
+								&& !listVM.functions.where('/trash') && !listVM.functions.where('/archive')"> Recover </a> 
+						</div>
+					</div>
+					
+					
+				<div class="contentNote">
+					<p>{{ note.content }}</p>
+				</div>
+				<div class="caracNotes">
+					<span data-ng-if="note.pinned == 1">
+						<img  alt="Note {{ userNote.idn }} pinned" src="../img/pinned.png">
+					</span>
+					<span data-ng-if="note.archived == 1">
+						<img  alt="Note {{ userNote.idn }} archived" src="../img/archived.png">
+					</span>
+					<span data-ng-if="note.owner == 1">
+						<img  alt="Note {{ userNote.idn }} owner" src="../img/owner.png">
+					</span>
+					<span data-ng-if="note.trash == 1">
+						<img  alt="Note {{ userNote.idn }} in trash" src="../img/rubbish-bin.png">
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

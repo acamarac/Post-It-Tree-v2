@@ -1,0 +1,15 @@
+<div class="topNavigation" >
+</div>
+
+<div class="content">
+	<h1>Add a new friend</h1>
+	<p>Introduce the username of the user you want to add as a friend:</p>
+	
+	<p> {{friendsHandlerVM.messages}}<p>
+
+	<form  data-ng-submit="friendsHandlerVM.functions.addFriend(friendsHandlerVM.username)">
+		<input type="text" name="userFriend" placeholder="Username" data-ng-model="friendsHandlerVM.username"
+			required> <br> 
+		<input type="submit" value="Continue">
+	</form>
+</div>

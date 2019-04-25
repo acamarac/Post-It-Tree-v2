@@ -1,0 +1,132 @@
+
+html, body {
+    font-family: "Roboto","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    color: #525c65;
+    margin:0;
+    padding: 0;
+}
+
+
+
+#title {
+    margin-top: 45px;
+    font-size: 310%;
+    margin-bottom: 45px;
+}
+
+.formElement {
+    height: 45px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    width: 40%;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#profileImage {
+    margin-bottom: 20px;
+}
+
+#perfil_image {
+    cursor: pointer;
+    width: 5%;
+}
+
+.sButton {
+    border-radius: 10px 10px 10px 10px;
+    background-color: #FFF275;
+    color: darkslategrey;
+    font-weight: bold;
+    border-color: #FFF275;
+    cursor: pointer;
+}
+
+#bSaveChanges {
+    width: 15%;
+    height: 40px;
+    margin-top: 30px;
+}
+
+
+
+
+#logOut {
+    width: 100%;
+    margin: 0;
+}
+
+#bLogOut {
+    left: 0;
+    right: 0;
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: 50px;
+    margin: 0 auto;
+}
+
+#pPhoto {
+    color: darkslategrey;
+}
+
+#formPassword {
+    margin-top: 70px;
+}
+
+#oldPassword {
+    margin-bottom: 70px;
+}
+
+input:focus{
+    border-color: yellow;
+}
+
+#submitB {
+	margin-bottom: 10px;
+}
+
+#deleteButton {
+	background-image : url("../img/access-denied.png") ;
+	background-repeat: no-repeat;
+	background-position: 5px 50%;
+	cursor: pointer;
+	width: 100%;
+	height: 40px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    background-color: #525c65;
+}
+
+#deleteButton2 {
+	cursor: pointer;
+	width: 100%;
+	height: 40px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    background-color: #525c65;
+}
+
+#deleteAccount {
+	float: right;
+    width: 15%;
+    margin-top: 15px;
+    margin-right: 50px;
+}
+
+#deleteAccount2 {
+    width: 15%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#userDetails {
+	margin-top: 100px;
+}
+
+

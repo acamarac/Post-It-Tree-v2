@@ -1,0 +1,47 @@
+<div class="topNavigation" >
+	<div id="deleteAccount">
+    	<a data-ng-href="#!/deleteAccount">
+    		<input type="button" id="deleteButton" value="Delete account">
+    	</a>
+    </div>
+</div>
+
+<div class="content">
+
+    <h1 id="title">Edit profile</h1>
+    
+    <p data-ng-if="userHandlerVM.messages.length>0"> {{userHandlerVM.messages }} </p>
+
+    <form data-ng-submit="userHandlerVM.functions.userHandlerSwitcher()">
+
+		<div id="profileImage" data-ng-if="userHandlerVM.user.urlImage">
+			<a data-ng-href="#!/profileImage"> 
+				<img id="perfil_image" alt="profile image" src="{{userHandlerVM.user.urlImage}}">
+			</a>
+		</div>
+
+		<div id="profileImage" data-ng-if="!userHandlerVM.user.urlImage">
+			<a data-ng-href="#!/profileImage"> 
+				<img  alt="profile image" src="https://images.vexels.com/media/users/3/129733/isolated/preview/a558682b158debb6d6f49d07d854f99f-casual-avatar-silueta-masculina-by-vexels.png" id="perfil_image">
+			</a>
+		</div>
+
+		<div id="userDetails">
+            <input type="text" data-ng-model="userHandlerVM.user.username"
+             value="{{userHandlerVM.user.username}}" class="formElement" name="username"><br>
+            <input type="text" data-ng-model="userHandlerVM.user.email"
+             value="{{userHandlerVM.user.email}}" class="formElement" name="email"><br>
+            <input type="password" data-ng-model="userHandlerVM.user.password"
+             placeholder="New password" class="formElement" name="password1"><br>
+            <input type="password" data-ng-model="userHandlerVM.password2" placeholder="Confirm new password" class="formElement" name="password2">
+        </div>
+        
+        <div id=submitB>
+        	<input type="submit" value="Save changes" class="sButton" id="bSaveChanges">
+    	</div>
+
+    </form>
+    
+    
+
+</div>

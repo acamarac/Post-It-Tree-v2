@@ -1,0 +1,47 @@
+
+html, body {
+    font-family: "Roboto","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    color: #525c65;
+    margin:0;
+    padding: 0;
+}
+
+.imgShow {
+	width: 100px;
+	display: inline-block;
+}
+
+#profileImageDiv {
+	display: inline-block;
+}
+
+#bSubmitImg {
+	width: 20%;
+    height: 40px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #525c65;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-color: #525c65;
+    cursor: pointer;
+    margin-top: 70px;
+}
+
+#noImage {
+	margin: 50px 0px 10px 0px;
+}
+
+#headerImage {
+	margin: 40px 0px 40px 0px;
+}
+
+
+
+
+
+

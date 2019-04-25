@@ -1,0 +1,103 @@
+html, body {
+    font-family: "Roboto","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    background-color: #f4f4ef;
+    color: #525c65;
+    margin:0;
+    padding: 0;
+}
+
+#menu {
+    margin-top: 35%;
+}
+
+.contentCreate{
+    height: 100%;
+    width: 80%;
+    float: right;
+    overflow: auto;
+}
+
+#h1ArTr {
+	font-size: 30px;
+	margin-top: 0px;
+	
+}
+
+#noteSpace {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#introduction h1 {
+    font-size: 40px;
+}
+
+#introduction {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+#noteTitle {
+    width: 85%;
+    padding: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contentNote {
+    width: 85%;
+    padding: 10px 10px 10px 10px;
+    height: 200px;
+    overflow: auto;
+}
+
+#contentNote, #noteTitle {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.notesFieldset {
+    border-radius: 5px 5px 5px 5px;
+    background-color: #FFF275;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#submitButton {
+    width: 20%;
+    height: 40px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #525c65;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-color: #525c65;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.ulCheckNote {
+	list-style-type: none;
+}
+
+#wrapNote {
+	text-align: left;
+}
+
+#friendShare {
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+
+

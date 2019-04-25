@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html id="list" data-ng-app="notesApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../css/sidebar_menu_style.css" />
+<link rel="stylesheet" href="../css/main_page.css" />
+<link rel="stylesheet" href="../css/noteCSS.css" />
+<link rel="stylesheet" href="../css/create_noteCSS.css" />
+<link rel="stylesheet" href="../css/accountCSS.css" />
+<link rel="stylesheet" href="../css/FriendsCSS.css" />
+<link rel="stylesheet" href="../css/SelectProfileImage.css" />
+<link rel="shortcut icon" href="../img/logoIcon.ico"/>
+<title>Notes</title>
+<!-- Include the AngularJS library -->
+	<script src="../js/angular/angular.js"></script>
+	<script src="../js/angular/angular-route.js"></script>
+<!-- Modules -->
+	<script src="../js/app.js"></script>
+	<script src="../js/factories/usersFactory.js"></script>
+	<script src="../js/controllers/userHandlerCtrl.js"></script>
+    <script src="../js/controllers/headerCtrl.js"></script>
+    <script src="../js/controllers/listCtrl.js"></script>
+    <script src="../js/factories/notesFactory.js"></script>
+    <script src="../js/factories/usersNotesFactory.js"></script>
+    <script src="../js/controllers/usersNotesHandlerCtrl.js"></script>
+    <script src="../js/controllers/noteHandlerCtrl.js"></script>
+    <script src="../js/factories/friendsFactory.js"></script>
+    <script src="../js/controllers/friendsHandlerCtrl.js"></script>
+    <script src="../js/factories/versionsFactory.js"></script>
+    <script src="../js/controllers/profileImageHandlerCtrl.js"></script>
+    <script src="../js/factories/profileImageFactory.js"></script>
+</head>
+
+<body>
+	<div data-ng-controller="headerCtrl as headerVM" class="navigation" >
+		<div id="homePage">
+			<a href="#!/"> 
+				<img src="../img/mainIcon.png" id="logo" alt="Home Page">
+			</a>
+		</div>
+
+		<div id="menu">
+
+			<ul id="menuList">
+				<li class="contentList"><a href="#!/">Notes</a></li>
+				<li class="contentList"><a href="#!/archive">Archive</a></li>
+				<li class="contentList"><a href="#!/trash">Trash</a></li>
+				<li class="contentList"><a href="#!/friends">Friends</a></li>
+				<li class="contentList"><a href="#!/advancedSearch">Advanced Search</a></li>
+			</ul>
+
+		</div>
+
+		<div data-ng-if="!headerVM.user.urlImage"  id="profileLink" data-ng-model="headerVM.user"
+				data-ng-change="headerVM.functions.readUser()">
+			<a href="#!/profile">
+				<img alt="Link to account settings" src="../img/profileLogo.png" id="profileImaLink">
+			</a>
+		</div>
+		<div data-ng-if="headerVM.user.urlImage"  id="profileLink" data-ng-model="headerVM.user"
+				data-ng-change="headerVM.functions.readUser()">
+			<a href="#!/profile">
+				<img alt="Link to account settings" src="{{headerVM.user.urlImage}}" id="profileImaLink">
+			</a>
+		</div>
+		
+		<p id="usernameP">{{headerVM.user.username}}</p>
+		
+		<div id="optionButtons">
+			<form action="../notes/LogoutServlet" method="post">
+				<input type="submit" id="buttonLogOut" value="Log out">
+			</form>
+		</div>
+	</div>
+	<div data-ng-view></div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+html, body {
+    font-family: "Roboto","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    color: #525c65;
+    margin:0;
+    padding: 0;
+}
+
+.noteLink {
+	text-decoration: none;
+}
+
+.contentList2 a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+#mainTitle {
+	font-size: 50px;
+	text-align: center;
+}
+
+.profileImage {
+	width: 10%;
+	float: left;
+	margin-left: 20px;
+}
+
+#friendFieldset {
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#profile {
+	margin-left: 20%;
+}
+
+#wrapTitle {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.addFriend {
+	padding: 0;
+    text-align: center;
+    margin-top: 50px;
+    margin: 0 auto;
+    width: 30%;
+    background-color: #525c65;
+    background-image: url("../img/plusIcon.png");
+    background-repeat: no-repeat;
+    background-position: 85% 50%;
+    list-style-type: none;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 30px;
+}
+
+#deleteFriend {
+	margin-top: 50px;
+}
+
+#deleteUl {
+	float: left;
+	padding: 0;
+    text-align: center;
+    margin: 0 auto;
+    width: 15%;
+    background-color: #DB5A42;
+    list-style-type: none;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#sharedNotes {
+	float: right;
+	width: 80%;	
+}
+
+.NoteTitle {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 1px solid grey;
+	border-radius: 5px 5px 5px 5px;
+}
+
+
+
+
+

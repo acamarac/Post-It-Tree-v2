@@ -1,0 +1,69 @@
+<div class="contentCreate">
+
+    <div id="noteSpace">
+        <div id="introduction" data-ng-show="noteHandlerVM.functions.where('/insertNote')">
+            <h1>Create new note</h1>
+        </div>
+        <div id="introduction" data-ng-show="noteHandlerVM.functions.where('/deleteNote/'+noteHandlerVM.note.idn)">
+            <h1>Delete note</h1>
+        </div>
+        <div id="introduction" data-ng-show="noteHandlerVM.functions.where('/editNote/'+noteHandlerVM.note.idn)">
+            <h1>Edit note</h1>
+        </div>
+        <div id="introduction" data-ng-show="noteHandlerVM.functions.where('/versions/'+noteHandlerVM.note.idn+'/'+noteHandlerVM.note.timestamp)">
+            <h1>Restore note</h1>
+        </div>
+        
+        <p data-ng-if="noteHandlerVM.messages.length>0"> {{noteHandlerVM.messages }} </p>
+        
+        <div id="noteForm">
+            <form data-ng-submit="noteHandlerVM.functions.noteHandlerSwitcher()">
+                <div id="textNote">
+                    <fieldset class="notesFieldset"><legend>Note</legend>
+                    
+                    	<input type="text" name="title" id="noteTitle" placeholder="Title"
+							data-ng-model="noteHandlerVM.note.title"
+							data-ng-readonly="noteHandlerVM.functions.where('/deleteNote/'+noteHandlerVM.note.idn)
+								|| noteHandlerVM.functions.where('/shareNote/'+noteHandlerVM.note.idn)
+								|| noteHandlerVM.functions.where('/versions/'+noteHandlerVM.note.idn+'/'+noteHandlerVM.note.timestamp)">
+							
+                    	<textarea id="contentNote" name="content" placeholder="Start typing your note..."
+                    		data-ng-model="noteHandlerVM.note.content"
+							data-ng-readonly="noteHandlerVM.functions.where('/deleteNote/'+noteHandlerVM.note.idn)
+								|| noteHandlerVM.functions.where('/shareNote/'+noteHandlerVM.note.idn)
+								|| noteHandlerVM.functions.where('/versions/'+noteHandlerVM.note.idn+'/'+noteHandlerVM.note.timestamp)">
+						</textarea>
+                    
+                    </fieldset>
+                </div>
+                
+                <div id="changeColor">
+                    <fieldset class="notesFieldset"><legend>Color</legend>
+                    	<select name="selectColor" data-ng-model="noteHandlerVM.note.color" required
+       			data-ng-disabled="noteHandlerVM.functions.where('/deleteNote/'+noteHandlerVM.note.idn)
+       				|| noteHandlerVM.functions.where('/versions/'+noteHandlerVM.note.idn+'/'+noteHandlerVM.note.timestamp)">
+       						<option value="">Select a color</option>
+                    		<option value="0" data-ng-selected="noteHandlerVM.note.color == 0">White</option>
+  							<option value="1" data-ng-selected="noteHandlerVM.note.color == 1">Pink</option>
+  							<option value="2" data-ng-selected="noteHandlerVM.note.color == 2">Grey</option>
+  							<option value="3" data-ng-selected="noteHandlerVM.note.color == 3">Blue</option>
+  							<option value="4" data-ng-selected="noteHandlerVM.note.color == 4">Yellow</option>
+						</select>
+
+					</fieldset>
+                </div>
+
+				<div id="submitNote">
+                	<input id="submitButton" type="submit" value="Delete Note"
+        				data-ng-show="noteHandlerVM.functions.where('/deleteNote/'+noteHandlerVM.note.idn)"/>
+      				<input id="submitButton" type="submit" value="Edit Note" 
+      					data-ng-show="noteHandlerVM.functions.where('/editNote/'+noteHandlerVM.note.idn)"/>
+      				<input id="submitButton" type="submit" value="Insert Note" 
+      					data-ng-show="noteHandlerVM.functions.where('/insertNote')"/>
+      				<input id="submitButton" type="submit" value="Restore version" 
+      					data-ng-show="noteHandlerVM.functions.where('/versions/'+noteHandlerVM.note.idn+'/'+noteHandlerVM.note.timestamp)"/>
+				</div>
+				</form>
+        </div>
+    </div>
+</div>
